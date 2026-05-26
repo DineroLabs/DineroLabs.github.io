@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dinero Explorer Redirect</title>
+  <script>
+    (function () {
+      var target = 'https://dinero-coin.com/';
+      if (window.location.hostname === 'explorer.dinero-coin.com') {
+        target = 'https://explorer.realmoneyforfreepeople.org/';
+        if (window.location.hash) {
+          target += window.location.search + window.location.hash;
+        } else if (window.location.pathname !== '/') {
+          target += '#' + window.location.pathname + window.location.search;
+        } else {
+          target += window.location.search;
+        }
+      }
+      window.location.replace(target);
+    }());
+  </script>
+</head>
+<body>
+  <p>Redirecting to Dinero.</p>
+  <p><a href="https://explorer.realmoneyforfreepeople.org/">Open Dinero Explorer</a></p>
+</body>
+</html>
